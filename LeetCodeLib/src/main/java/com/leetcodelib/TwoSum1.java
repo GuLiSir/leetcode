@@ -24,13 +24,10 @@ public class TwoSum1 {
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        int[] result = new int[2];
         for (int i = 0; i < nums.length; i++) {
             if (i != nums.length - 1) {
                 for (int i1 = i + 1; i1 < nums.length; i1++) {
                     if (nums[i] + nums[i1] == target) {
-                        result[0] = nums[i];
-                        result[1] = nums[i1];
                         return new int[]{i, i1};
                     }
                 }
