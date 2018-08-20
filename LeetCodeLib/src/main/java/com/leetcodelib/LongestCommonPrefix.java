@@ -1,5 +1,7 @@
 package com.leetcodelib;
 
+import java.io.File;
+
 /**
  * 14. 最长公共前缀
  * https://leetcode-cn.com/problems/longest-common-prefix/description/
@@ -22,6 +24,7 @@ package com.leetcodelib;
  */
 public class LongestCommonPrefix {
     public static void main(String[] args) {
+        System.exit(5);
         System.out.println(longestCommonPrefix("flower", "flow", "flight"));
         System.out.println(longestCommonPrefix("flower", "flow", "floght"));
         System.out.println(longestCommonPrefix("asdfghjk", "asdfyui", "asdfeqwr"));
