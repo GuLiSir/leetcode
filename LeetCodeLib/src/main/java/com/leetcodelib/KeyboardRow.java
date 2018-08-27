@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * 你可以重复使用键盘上同一字符。
  * 你可以假设输入的字符串将只包含字母。
  */
+//增加键盘行的解答,该解答方法感觉并不是最好的实现方式,因为代码长
 public class KeyboardRow {
     public static void main(String[] args) {
         String[] words = findWords(new String[]{"Hello", "Alaska", "Dad", "Peace"});
