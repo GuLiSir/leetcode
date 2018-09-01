@@ -33,7 +33,13 @@ public class FlippingAnImage {
         A[0] = new int[]{1, 1, 0};
         A[1] = new int[]{1, 0, 1};
         A[2] = new int[]{0, 0, 0};
-        flipAndInvertImage(A)
+        int[][] ints = flipAndInvertImage(A);
+        for (int[] anInt : ints) {
+            for (int i : anInt) {
+                System.out.println(i + ",");
+            }
+            System.out.println("\n");
+        }
     }
 
     public static int[][] flipAndInvertImage(int[][] A) {
