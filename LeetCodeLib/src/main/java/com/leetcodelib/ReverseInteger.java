@@ -20,26 +20,27 @@
 // * 输出: 21
 // * 注意:
 // * <p>
-// * 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
+// * 假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−2^31,  2^31 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
 // */
 //public class ReverseInteger {
 //    public static void main(String[] args) {
-//
+//        System.out.println(reverse(123));
+//        System.out.println(reverse(0));
+//        System.out.println(reverse(1));
+//        System.out.println("00000");
 //    }
 //
-//    public int reverse(int x) {
-//        boolean downZero = x < 0;
-////        Integer.MAX_VALUE
-//        int b = Math.abs(x);
-//        for (int i = 32; i > 0; i--) {
-////            b/i
+//    public static int reverse(int x) {
+//        int outputNum = 0,mod = 0;
+//        int ratio= x;
+//        if(Math.abs(ratio) < 10){
+//            return x;
 //        }
-//
-//        int result = 1;
-//        while (x / 10 != 0) {
-//            result*
+//        while(Math.abs(ratio)>9){
+//            mod = ratio%10;
+//            ratio = ratio/10;
+//            outputNum = outputNum*10 + mod;
 //        }
-////        x
-//        return 0;
+//        return outputNum;
 //    }
 //}
