@@ -43,8 +43,15 @@ public class FizzBuzz {
         List<String> strings = fizzBuzz(15);
         for (String string : strings) {
             System.out.println(string);
-//            System.out.println("\n");
         }
+        System.out.println("\n");
+
+
+        List<String> strings2 = fizzBuzz(500);
+        for (String string : strings2) {
+            System.out.println(string);
+        }
+
     }
 
     public static List<String> fizzBuzz(int n) {
