@@ -35,50 +35,48 @@ public class ImplementStrstr {
         System.out.println(strStr("0123456789", "9"));
         //-1
         System.out.println(strStr("0123456789", "abc"));
+        System.out.println(strStr("a", "a"));
+        System.out.println(strStr("aaa", "aaa"));
     }
 
     public static int strStr(String haystack, String needle) {
-        if (needle == null || needle.length() == 0) {
+        if (needle.length()==0) {
+            //当 needle 是空字符串时我们应当返回 0 。这与C语言的 strstr() 以及 Java的 indexOf() 定义相符。
             return 0;
         }
-        if (haystack.length() < needle.length()) {
-            //被查找的字符串长度比要查找的字符串还短,绝对找不到的
+        int length = haystack.length();
+        int needleLength = needle.length();
+        if (needleLength > length) {
+            //查找的字符,比被查找的长,肯定找不到
             return -1;
         }
 
-        //当匹配到第一个字符的时候,匹配到第一个字符的索引,如果当前没有匹配到,则值为-1
-        int findStartIndex = -1;
-
-        //从需要查找的字符串开始找
-//        for (int i = 0; i < needle.length(); i++) {
-        for (int i1 = 0; i1 < haystack.length() ; i1++) {
-            if (haystack.charAt(i1) == needle.charAt(0) && findStartIndex == -1) {
-                //设置索引位置
-                findStartIndex = i1;
-                continue;
-            }
-            //判断当前第一个字符串是否匹配到了
-            if (findStartIndex != -1) {
-                //匹配到了
-                if (needle.charAt(i1 - findStartIndex-1) == haystack.charAt(i1)) {
-                    //全部匹配完成了
-                    if (i1 - findStartIndex == needle.length()) {
-                        return findStartIndex;
+        char charAtNeedleFirst = needle.charAt(0);
+        for (int i = 0; i < length; i++) {
+            char c = haystack.charAt(i);
+            if (c == charAtNeedleFirst) {
+                if (needleLength==1){
+                    //要查找的只有一位,直接返回匹配结果
+                    return i;
+                }
+                if (i + needleLength > length) {
+                    //被查找的字符串,剩余长度不够了
+                    return -1;
+                }
+                for (int i1 = 1; i1 < needleLength; i1++) {
+                    if (haystack.charAt(i + i1) == needle.charAt(i1)) {
+                        if (i1 == needleLength - 1) {
+                            //全部匹配完成,符合查找要求
+                            return i;
+                        }
+                    } else {
+                        break;
                     }
-                } else {
-                    //该次匹配失败,重新进行匹配
-                    findStartIndex = -1;
                 }
             }
-
         }
-        if (findStartIndex == -1) {
-            //对被查找的字符串一个字符都没有找到,则代表匹配不到,返回-1
-            return -1;
-        }
-
-//        }
-        throw new IllegalStateException();
-//        return -1;
+        return -1;
     }
+
+
 }
